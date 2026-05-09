@@ -47,15 +47,6 @@ Many surveyors check GNSS conditions only after arriving on site, or rely on old
 ## Screenshots
 
 
-Recommended filenames:
-
-```text
-screenshots/main-dashboard.png
-screenshots/sky-view.png
-screenshots/geometry-panel.png
-screenshots/timeline-report.png
-```
-
 ## Notes
 
 This repository intentionally does not include the source code. It is meant to document the project publicly for portfolio, CV, and contest purposes while keeping implementation details private.

@@ -1,48 +1,62 @@
 # RTK Forecast
 
-**GNSS field-planning app for surveyors**
+Android app for professional GNSS/RTK field planning.
 
-RTK Forecast helps surveyors decide whether current and upcoming field conditions are suitable for GNSS/RTK work. The app combines satellite geometry, space-weather risk, and local field conditions into a mobile-first dashboard.
+RTK Forecast helps surveyors decide whether conditions at a given location
+are suitable for GNSS/RTK work before leaving for the field. It pulls live
+satellite geometry, space-weather data from NOAA SWPC, and local weather
+from Open-Meteo into a single screen, with a 48-hour planning timeline and
+PDF export.
 
-> Source code is private. This repository is a public project case study with screenshots, feature notes, and architecture overview.
+Live portfolio: https://rtk-forecast.vercel.app
 
-## Live demo
+Source code is private. This repository is a public project case study.
 
-https://rtk-forecast.vercel.app/
+---
+
+## What it does
+
+- Computes PDOP, HDOP, and VDOP using a proper N x (3+K) H matrix with
+  per-constellation clock-bias columns (GPS, GLONASS, Galileo, BeiDou).
+  This matches the formulation used by professional receivers, not the
+  simplified single-clock GPS-era approximation.
+- Shows a live polar sky view of all visible satellites, updated every
+  30 seconds, with a 10 degree elevation mask.
+- Displays the official NOAA SWPC 3-hour Kp index, a live 1-minute
+  estimate, and a 48-hour Kp forecast.
+- Accepts location input via Google Maps picker or typed coordinates
+  in decimal degrees, degrees-decimal minutes, or degrees-minutes-seconds.
+- Generates a 5-slot timeline comparison (Now, +1h, +2h, +3h, Tomorrow
+  09:00) and exports it as a PDF.
+
+## Validation
+
+DOP calculations were validated against Trimble GNSS Planning Online.
+Results at a test location: PDOP 0.84, HDOP 0.42, VDOP 0.73 vs
+Trimble's 0.83 / 0.44 / 0.70.
+
+Predicted satellite count was compared in the field against a
+Stonex S850+ RTK receiver. The app consistently showed more satellites
+than the receiver tracked, which is expected: the app predicts
+geometrically visible satellites with no obstructions, while the receiver
+applies signal quality thresholds and real-world site conditions.
 
 ## Project status
 
-- Android app in development
-- Built with React Native / Expo and TypeScript
-- Public landing page available
-- Planned Google Play release
+Functional Android app. Play Store closed testing in progress.
 
-## Core features
+## Stack
 
-- Multi-constellation GNSS planning: GPS, GLONASS, Galileo, BeiDou
-- Visible satellite sky view with a 10° elevation mask
-- PDOP / HDOP / VDOP indicators for survey planning
-- NOAA SWPC space-weather data, including official 3-hour Kp and alerts
-- 48-hour planning timeline for comparing field windows
-- Local weather conditions using Open-Meteo
-- Location override by map or coordinates
-- PDF export concept for field notes or client documentation
+React Native, Expo SDK 54, TypeScript, satellite.js v6, NOAA SWPC API,
+CelesTrak TLE data, Open-Meteo, Google Maps SDK, EAS Build, Hermes.
 
-## Technical stack
+## How it was built
 
-- React Native / Expo SDK 54
-- TypeScript
-- satellite.js for orbital propagation
-- CelesTrak TLE data
-- NOAA SWPC API
-- Open-Meteo API
-- Google Maps SDK
-- Hermes JavaScript engine
-- EAS Build
-
-## Why this project exists
-
-Many surveyors check GNSS conditions only after arriving on site, or rely on older desktop planning tools. RTK Forecast is designed as a practical mobile tool for the decision made before leaving for the field: whether today is a good time to survey, and which time window is likely to be better.
+The app was architected by George Kouikoglou, a freelance surveying
+engineer based in Kavala, Greece. The source code was written with
+AI coding tools (Claude Code, Codex) under his direction. All technical
+decisions, data source choices, validation work, and field testing were
+done by him.
 
 ## Screenshots
 
@@ -55,4 +69,5 @@ Many surveyors check GNSS conditions only after arriving on site, or rely on old
 
 ## Notes
 
-This repository intentionally does not include the source code. It is meant to document the project publicly for portfolio, CV, and contest purposes while keeping implementation details private.
+This repository does not include source code. It exists to document the
+project publicly for portfolio and contest submission purposes.

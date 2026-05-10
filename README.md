@@ -46,6 +46,12 @@ Many surveyors check GNSS conditions only after arriving on site, or rely on old
 
 ## Screenshots
 
+<img width="1080" height="2374" alt="Screenshot_2026-05-09-11-36-44-93_b29aabb9387aa77602b391a7c331c2dc" src="https://github.com/user-attachments/assets/0c89efa6-cd9d-4a4c-bfff-8aba8c0e331b" />
+<img width="1080" height="2374" alt="Screenshot_2026-05-09-11-37-44-19_b29aabb9387aa77602b391a7c331c2dc" src="https://github.com/user-attachments/assets/525925d1-c80f-481c-adae-d5e0707fb2dc" />
+<img width="1080" height="2374" alt="Screenshot_2026-05-09-11-38-38-18_e2d5b3f32b79de1d45acd1fad96fbb0f" src="https://github.com/user-attachments/assets/618ecd0a-5f6e-4564-861f-854d7ec77177" />
+<img width="1080" height="2374" alt="Screenshot_2026-05-09-11-37-11-32_b29aabb9387aa77602b391a7c331c2dc" src="https://github.com/user-attachments/assets/780a1bf8-90b9-4a3d-8d2d-f865be614c56" />
+<img width="1080" height="2374" alt="Screenshot_2026-05-09-11-37-05-76_b29aabb9387aa77602b391a7c331c2dc" src="https://github.com/user-attachments/assets/2c69cfad-ae78-409d-88f2-2cfec61725e0" />
+
 
 ## Notes
 
